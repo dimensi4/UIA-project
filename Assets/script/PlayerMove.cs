@@ -18,6 +18,6 @@ public class player : MonoBehaviour
         animator.SetFloat("Horizontal", mouvement.x);
         animator.SetFloat("Speed",mouvement.magnitude);
 
-        rb.MovePosition(rb.position + mouvement * Vitesse * Time.deltaTime);
+        rb.MovePosition(rb.position + Time.deltaTime * Vitesse * mouvement);
     }
 }
