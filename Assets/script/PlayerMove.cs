@@ -6,9 +6,11 @@ public class player : MonoBehaviour
 {
 
     public Rigidbody2D rb;
-    public float Vitesse = 5f;
+    public float vitesse = 5f;
     Vector2 mouvement;
     public Animator animator;
+
+    public float Vitesse { get => vitesse; set => vitesse = value; }
 
     void Update()
     {
@@ -18,6 +20,6 @@ public class player : MonoBehaviour
         animator.SetFloat("Horizontal", mouvement.x);
         animator.SetFloat("Speed",mouvement.magnitude);
 
-        rb.MovePosition(rb.position + Time.deltaTime * Vitesse * mouvement);
+        rb.MovePosition(rb.position + Vitesse * mouvement);
     }
 }

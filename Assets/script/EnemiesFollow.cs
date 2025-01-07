@@ -4,18 +4,23 @@ using UnityEngine;
 
 public class mob : MonoBehaviour
 {
-    public float vitesse;
-    public Transform joueur;
+    public float speed = 3f;
 
     void Update()
     {
-        // Calculer la direction vers le joueur
-        Vector2 direction = joueur.position - transform.position;
+        GameObject player = GameObject.Find("Chill-guy");
 
-        // Normaliser la direction pour avoir une longueur de 1
-        direction.Normalize();
+        if (player != null)
+        {
+            // Calcul de la direction vers le joueur
+            Vector3 direction = player.transform.position - transform.position;
 
-        // Appliquer une force dans cette direction
-        GetComponent<Rigidbody2D>().velocity = direction * vitesse;
+            // Normalisation du vecteur direction pour obtenir une direction unitaire
+            direction.Normalize();
+
+            // Déplacement de l'ennemi
+            transform.position += direction * speed * Time.deltaTime;
+        }
     }
 }
+

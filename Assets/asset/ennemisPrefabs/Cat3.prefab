@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 487097885054244640}
   - component: {fileID: 4803529464758344554}
   - component: {fileID: 395446424706766453}
+  - component: {fileID: 5278855434527598313}
   m_Layer: 0
   m_Name: Cat3
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -119,8 +120,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.15071869, y: 0}
-  m_Size: {x: 8.046651, y: 19.2}
+  m_Offset: {x: 0.063557625, y: -0.09398699}
+  m_Size: {x: 8.27353, y: 18.614212}
   m_Direction: 0
 --- !u!50 &4803529464758344554
 Rigidbody2D:
@@ -163,3 +164,38 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vitesse: 15
   intervalleChangementDirection: 2
+--- !u!70 &5278855434527598313
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 563528275416554832}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.087115765, y: -0.034149885}
+  m_Size: {x: 8.71294, y: 19.085781}
+  m_Direction: 0
