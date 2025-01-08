@@ -4,6 +4,6 @@ using UnityEngine;
 
 public class PlayerHearts : MonoBehaviour
 {
+    public bool isTuch = false;
     public int playerHearts = 6;
- 
 }

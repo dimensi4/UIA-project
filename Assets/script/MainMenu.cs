@@ -16,7 +16,7 @@ public class MainMenu : MonoBehaviour
 
     public void Credits()
     {
-        settingsWindow.SetActive(true);
+         settingsWindow.SetActive(true);  
     }
 
     public void CloseCredits()
