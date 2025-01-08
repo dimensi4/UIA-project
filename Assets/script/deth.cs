@@ -31,10 +31,6 @@ public class deth : MonoBehaviour
             dethWindow.SetActive(true);
             Time.timeScale = 0;
         }
-        else
-        {
-            dethWindow.SetActive(false);
-            Time.timeScale = 1;
-        }
+       
     }
 }
