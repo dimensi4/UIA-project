@@ -2,24 +2,55 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class player : MonoBehaviour
+public class Player : MonoBehaviour
 {
-
     public Rigidbody2D rb;
-    public float vitesse = 5f;
-    Vector2 mouvement;
-    public Animator animator;
+    public float speed = 5f;
+    public float dashSpeed = 10f;
+    public float dashDuration = 0.2f;
+    public float dashCooldown = 1f;
 
-    public float Vitesse { get => vitesse; set => vitesse = value; }
+    private Vector2 movement;
+    private Animator animator;
+    private bool isDashing = false;
+    private float dashStartTime;
+    private float lastDashTime;
+
+    void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     void Update()
     {
-        mouvement.x = Input.GetAxisRaw ("Horizontal");
-        mouvement.y = Input.GetAxisRaw ("Vertical");
+        movement.x = Input.GetAxisRaw("Horizontal");
+        movement.y = Input.GetAxisRaw("Vertical");
 
-        animator.SetFloat("Horizontal", mouvement.x);
-        animator.SetFloat("Speed",mouvement.magnitude);
+        animator.SetFloat("Horizontal", movement.x);
+        animator.SetFloat("Speed", movement.magnitude);
 
-        rb.MovePosition(rb.position + Vitesse * mouvement);
+        if (Input.GetKeyDown(KeyCode.Space) && Time.time - lastDashTime > dashCooldown)
+        {
+            isDashing = true;
+            dashStartTime = Time.time;
+            lastDashTime = Time.time;
+        }
+
+        if (isDashing)
+        {
+            if (Time.time - dashStartTime < dashDuration)
+            {
+                rb.velocity = movement * dashSpeed;
+            }
+            else
+            {
+                isDashing = false;
+                rb.velocity = movement * speed;
+            }
+        }
+        else
+        {
+            rb.velocity = movement * speed;
+        }
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class mob1 : MonoBehaviour
 {
-    public int degats = 1;
+    public int degats = 3;
     PlayerHearts playerHearts;
     private void Start()
     {

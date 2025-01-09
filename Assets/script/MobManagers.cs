@@ -11,6 +11,7 @@ public class MobManagers : MonoBehaviour
     Transform mobsParent;
 
     public static MobManagers instance;
+
     private void Awake()
     {
         if (instance == null) instance = this;
@@ -19,24 +20,27 @@ public class MobManagers : MonoBehaviour
     private void Start()
     {
         mobsParent = GameObject.Find("Mobs").transform;
+        curentTimeBetweenSpawn = Random.Range(0f, timeBetweenSpawn);
     }
 
     private void Update()
     {
         curentTimeBetweenSpawn -= Time.deltaTime;
 
-        if (curentTimeBetweenSpawn <= 0 ){
+        if (curentTimeBetweenSpawn <= 0)
+        {
             SpawnMob();
             curentTimeBetweenSpawn = timeBetweenSpawn;
         }
     }
 
     Vector2 RandomPosition()
-    { 
-        return new Vector2(Random.Range(-16,16),Random.Range(-8,8));
+    {
+        return new Vector2(Random.Range(-20, 20), Random.Range(-10, 10));
     }
 
-    void SpawnMob() { 
+    void SpawnMob()
+    {
         var e = Instantiate(ennemisPrefabs, RandomPosition(), Quaternion.identity);
         e.transform.SetParent(mobsParent);
     }
@@ -45,5 +49,4 @@ public class MobManagers : MonoBehaviour
     {
         foreach (Transform e in mobsParent) Destroy(e.gameObject);
     }
-
 }
