@@ -8,6 +8,7 @@ public class MainMenu : MonoBehaviour
     public string levelToLoad; 
 
     public GameObject settingsWindow;
+    public GameObject info;
 
     public void StartGame()
     {
@@ -19,9 +20,19 @@ public class MainMenu : MonoBehaviour
          settingsWindow.SetActive(true);  
     }
 
+    public void Info()
+    {
+         info.SetActive(true);  
+    }
+
     public void CloseCredits()
     { 
         settingsWindow.SetActive(false); 
+    }
+
+    public void CloseInfo()
+    {
+        info.SetActive(false);
     }
 
     public void QuitGame()
